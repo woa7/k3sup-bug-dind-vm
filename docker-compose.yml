@@ -1,0 +1,13 @@
+version: "3"
+services:
+    vm:
+        image: jkz0/qemu:latest
+        cap_add:
+            - NET_ADMIN
+        devices:
+            - /dev/net/tun
+            - /dev/kvm
+        volumes:
+            - ${VM_IMAGE:?VM image must be supplied}:/image
+        restart: always
+
