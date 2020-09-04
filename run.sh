@@ -166,7 +166,7 @@ $HASH_CMD $DOWNLOAD_FILE_HASHFILE\_min
 ###rm -f $DOWNLOAD_FILE_HASHFILE{,_min,.sig,.asc}
 
 BOOT_FILE="$(ls $DOWNLOAD_FILE)"
-if [ ! -f "$BOOT_FILE" -a -s "$BOOT_FILE.gz" ]; then
+if [ ! -f "$BOOT_FILE" ] && [ -f "$BOOT_FILE.gz" ]; then
     gunzip "$BOOT_FILE.gz"
     BOOT_FILE="$(basename $BOOT_FILE .gz)"
 fi
